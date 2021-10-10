@@ -1,0 +1,23 @@
+.songsContainer {
+  grid-row: 2/3;
+  grid-column: 2/3;
+  padding-top: 30px;
+  overflow: scroll;
+
+  &__heading {
+    display: grid;
+    grid-template-columns: 300px 200px 120px 120px 170px 170px;
+    box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.09);
+
+    padding-bottom: 15px;
+
+    & h4 {
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    & h4:first-child {
+      margin-left: 60px;
+    }
+  }
+}

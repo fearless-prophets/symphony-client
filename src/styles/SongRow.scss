@@ -1,0 +1,82 @@
+.songrow {
+  padding-top: 15px;
+  display: grid;
+  grid-template-columns: 300px 200px 120px 120px 170px 170px;
+
+  &__title {
+    display: grid;
+    grid-template-columns: 40px 24px 212px;
+
+    & span {
+      width: 40px;
+      height: 100%;
+      margin-right: 24px;
+      display: grid;
+      align-content: center;
+
+      &:hover > p {
+        display: none;
+      }
+
+      &:hover > .MuiSvgIcon-root {
+        display: inline;
+        cursor: pointer;
+        font-size: 30px;
+        margin-left: -10px;
+      }
+
+      & .MuiSvgIcon-root {
+        display: none;
+      }
+    }
+  }
+
+  &__playlists {
+    width: 160px;
+  }
+
+  &__playlists,
+  &__tags {
+    display: flex;
+    align-items: center;
+    overflow-x: scroll;
+    position: relative;
+  }
+
+  &__tags {
+    width: 90px;
+  }
+
+  &__playlists:hover > .songrow__playlists-button,
+  &__tags:hover > .songrow__tags-button {
+    opacity: 0.3;
+    cursor: pointer;
+  }
+
+  &__playlists:hover > .MuiSvgIcon-root,
+  &__tags:hover > .MuiSvgIcon-root {
+    display: flex;
+    opacity: 1;
+  }
+
+  &__playlists .MuiSvgIcon-root,
+  &__tags .MuiSvgIcon-root {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: none;
+  }
+
+  &__playlists::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__length,
+  &__date,
+  &__tempo {
+    display: flex;
+    align-items: center;
+  }
+}

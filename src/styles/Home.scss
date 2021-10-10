@@ -1,0 +1,18 @@
+.home {
+  background-color: #121212;
+  height: 100%;
+  color: white;
+
+  display: grid;
+  grid-template-columns: 25px 1fr 25px;
+  grid-template-rows: 130px 1fr 150px;
+
+  position: fixed;
+
+  & h1 {
+    align-self: center;
+    grid-row: 1/2;
+    grid-column: 2/3;
+    margin-left: 60px;
+  }
+}

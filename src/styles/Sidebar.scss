@@ -1,0 +1,39 @@
+.sidebar {
+  height: 100%;
+  background-color: black;
+
+  display: grid;
+  grid-template-columns: 25px 1fr 25px;
+  grid-template-rows: 130px auto 1fr;
+
+  &__header {
+    grid-column: 2/3;
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+
+    & img {
+      width: 70px;
+    }
+
+    & h1 {
+      color: white;
+    }
+  }
+
+  & hr {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+
+  &__options {
+    grid-column: 2/3;
+    grid-row: 3/4;
+
+    margin-top: 20px;
+
+    & a {
+      color: transparent;
+    }
+  }
+}

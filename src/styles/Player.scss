@@ -1,0 +1,7 @@
+.player {
+  height: 100%;
+
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  grid-template-rows: 1fr 150px;
+}

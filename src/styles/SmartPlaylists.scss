@@ -1,0 +1,89 @@
+.smartPlaylist {
+  display: grid;
+  grid-template-columns: 1fr 200px 1fr;
+  grid-template-rows: 150px 80px 1fr 80px;
+  height: 100%;
+
+  h1 {
+    text-align: center;
+    grid-column: 1/4;
+    align-self: center;
+    justify-self: center;
+    font-size: 3em;
+  }
+
+  .selectFilter {
+    width: 85%;
+    background-color: lightgray;
+    text-align: left;
+    padding: 20px 0px;
+    grid-column: 1/2;
+    justify-self: right;
+    border-radius: 12px;
+    font-size: 2em;
+    padding-left: 20px;
+
+    .MuiSvgIcon-root {
+      padding-left: 120px;
+    }
+  }
+
+  .listBox {
+    width: 90%;
+    height: 30vh;
+    background-color: lightgray;
+    border-radius: 12px;
+  }
+
+  #filterBox {
+    grid-column: 1/2;
+    grid-row: 3/4;
+    justify-self: right;
+    height: 90%;
+    align-self: center;
+  }
+
+  .arrowCircle {
+    padding: 5px;
+    border-radius: 50px;
+    grid-column: 2/3;
+    grid-row: 3/4;
+    justify-self: center;
+    align-self: center;
+    background-color: lightgray;
+
+    .MuiSvgIcon-root {
+      font-size: 3em;
+    }
+  }
+
+  #newPlaylistName {
+    grid-column: 3/4;
+    grid-row: 2/3;
+    width: 85%;
+    border-radius: 12px;
+    background-color: lightgray;
+    padding-left: 20px;
+    font-size: 2em;
+    border: none;
+  }
+
+  #songBox {
+    grid-column: 3/4;
+    grid-row: 3/4;
+    justify-self: left;
+    height: 90%;
+    align-self: center;
+  }
+
+  .sendBtn {
+    background-color: lightgray;
+    grid-column: 3/4;
+    grid-row: 4/5;
+    align-self: center;
+    justify-self: right;
+    margin: 20%;
+    padding: 20px 40px;
+    font-size: 1.5em;
+  }
+}

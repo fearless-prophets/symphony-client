@@ -1,0 +1,19 @@
+@import './variables.scss';
+@import './index.scss';
+@import './Landing.scss';
+@import './Player.scss';
+@import './Sidebar.scss';
+@import './Body.scss';
+@import './SongBar.scss';
+@import './SidebarOption.scss';
+@import './Home.scss';
+@import './SongsContainer.scss';
+@import './SongRow.scss';
+@import './SongInfo.scss';
+@import './Button.scss';
+@import './SmartPlaylists.scss';
+
+.App {
+  height: 100vh;
+  width: 100vw;
+}
