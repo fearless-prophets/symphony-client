@@ -43,11 +43,25 @@ function App() {
       const snapshot = await db.collection('tracks').get();
       return snapshot.docs.map((doc) => doc.data());
     };
+    const fetchPlaylists = async function () {
+      const snapshot = await db
+        .collection('playlists')
+        .where('owner.id', '==', 'reece.poulsen')
+        .get();
+      return snapshot.docs.map((doc) => doc.data());
+    };
     fetchTracks().then((data) => {
       console.log(data);
       dispatch({
         type: 'SET_TRACKS',
         tracks: data,
+      });
+    });
+    fetchPlaylists().then((data) => {
+      console.log(data);
+      dispatch({
+        type: 'SET_PLAYLISTS',
+        playlists: data,
       });
     });
 
@@ -63,6 +77,7 @@ function App() {
       });
 
       spotify.getMe().then((user) => {
+        console.log('user', user);
         dispatch({
           type: 'SET_USER',
           user,
