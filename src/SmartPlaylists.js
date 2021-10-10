@@ -118,6 +118,8 @@ function SmartPlaylists() {
   const [currentCount, setCurrentCount] = useState(0);
   const [{ tracks, playlists }] = useStateValue();
   let state = 'union';
+  let p1 = playlists[0].id;
+  let p2 = playlists[1].id;
   let setLogicLibrary = createSetLogicLibrary({
     playlists,
     tracks,
@@ -126,33 +128,29 @@ function SmartPlaylists() {
     state = event.target.value;
   }
 
+  function handleChange1(event) {
+    p1 = event.target.value;
+  }
+
+  function handleChange2(event) {
+    p2 = event.target.value;
+  }
+
   function handleSubmit(event) {
     console.log(state);
     switch (state) {
       case 'union':
-        setCurrentCount(
-          setLogicLibrary.unionPlaylists(playlists[0].id, playlists[1].id)
-            .length
-        );
+        setCurrentCount(setLogicLibrary.unionPlaylists(p1, p2).length);
         break;
       case 'intersection':
-        setCurrentCount(
-          setLogicLibrary.innerJoinPlaylists(playlists[0].id, playlists[1].id)
-            .length
-        );
+        setCurrentCount(setLogicLibrary.innerJoinPlaylists(p1, p2).length);
         break;
       case 'outerJoin':
-        setCurrentCount(
-          setLogicLibrary.outerJoinPlaylists(playlists[0].id, playlists[1].id)
-            .length
-        );
+        setCurrentCount(setLogicLibrary.outerJoinPlaylists(p1, p2).length);
         break;
       case 'difference':
         setCurrentCount(
-          setLogicLibrary.getAllFromFirstNoneFromSecondPlaylists(
-            playlists[0].id,
-            playlists[1].id
-          ).length
+          setLogicLibrary.getAllFromFirstNoneFromSecondPlaylists(p1, p2).length
         );
         break;
       default:
@@ -171,7 +169,23 @@ function SmartPlaylists() {
       <h1>Smart Playlists</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Pick your favorite flavor:
+          Pick your first playlist:
+          <select value={p1} onChange={handleChange1}>
+            {playlists.map((playlist) => (
+              <option value={playlist.id}>{playlist.name}</option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Pick your second playlist:
+          <select value={p2} onChange={handleChange2}>
+            {playlists.map((playlist) => (
+              <option value={playlist.id}>{playlist.name}</option>
+            ))}
+          </select>
+        </label>
+        <label>
+          Pick your filter:
           <select value={state?.value} onChange={handleChange}>
             <option value='union'>Union</option>
             <option value='intersection'>Intersection</option>
